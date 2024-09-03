@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
 file=$1
+branch=$2
 
 check_versions() {
-    git diff origin/master ${file} | grep version
+    git diff origin/${branch} ${file} | grep version
 }
 
 version_changed=`check_versions | wc -l | tr -d '[:space:]'`

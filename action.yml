@@ -9,9 +9,14 @@ inputs:
     description: File to check
     required: false
     default: package.json
+  branch:
+    description: Name of the main branch
+    required: false
+    default: master
 
 runs:
   using: docker
   image: Dockerfile
   args:
     - ${{ inputs.file }}
+    - ${{ inputs.branch }}
