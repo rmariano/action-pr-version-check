@@ -13,9 +13,9 @@ if [ $version_changed -gt 1 ]; then
     echo "Versions are different; verifying that the version increased"
     check_versions
     version_increased=`check_versions | awk -F\" '{
-    split($4, old, ".");
+    split($2, old, ".");
     getline;
-    split($4, new, ".");
+    split($2, new, ".");
     if(new[1] > old[1] \
         || (new[1] == old[1] && new[2] > old[2]) \
         || (new[1] == old[1] && new[2] == old[2] && new[3] > old[3])) {
